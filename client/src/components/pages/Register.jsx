@@ -39,8 +39,8 @@ export const Register = () => {
           <button className="btn-primary btn mt-9 w-full border-0 bg-sky-600 hover:bg-sky-700">Sign in</button>
         </form>
         <Link to={'/login'}>
-          <h1 className="font-base mt-7 text-center text-sm">
-            Already have an accout?<span className="font-semibold">Log in</span>
+          <h1 className="font-base mt-7 text-center text-sm font-light">
+            Already have an accout?<span className="font-semibold"> Log in</span>
           </h1>
         </Link>
       </div>

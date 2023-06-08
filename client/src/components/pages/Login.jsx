@@ -16,7 +16,7 @@ export const Login = () => {
             <label className="label ">
               <span className="label-text text-gray-400">Email</span>
             </label>
-            <input type="text" placeholder="Type here" className="input-bordered input w-full max-w-sm bg-gray-800 placeholder:text-gray-600" />
+            <input type="text" placeholder="Type here" className="input-bordered input w-full max-w-sm bg-gray-800  placeholder:text-gray-600" />
           </div>
           <div className="mt-3 w-full">
             <label className="label">
@@ -27,7 +27,7 @@ export const Login = () => {
           <button className="btn-primary btn mt-9 w-full border-0 bg-sky-600 hover:bg-sky-700">Log in</button>
         </form>
         <Link to={'/register'}>
-          <h1 className="font-base mt-7 text-center text-sm">
+          <h1 className="mt-7 text-center text-sm font-light">
             Don't have account yet? <span className="font-semibold">Register</span>
           </h1>
         </Link>
