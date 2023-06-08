@@ -15,7 +15,6 @@ const verifyToken = function (req, res, next) {
 
     try {
         req.decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
-        console.log(req.decoded)
         next();
     } catch {
         return res.status(401).json({ message: 'Authorization failed' });

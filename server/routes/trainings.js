@@ -3,6 +3,7 @@ const { Training, validate } = require("../models/training")
 const {User} = require("../models/user");
 const verifyToken = require("../middleware/verifyToken")
 const mongoose = require("mongoose");
+const {Exercise} = require("../models/exercise");
 
 router.get("/", verifyToken, async (req, res) => {
     try {
@@ -41,6 +42,12 @@ router.delete("/:id", verifyToken, async (req, res) => {
     try {
         const deleted = await Training.findOneAndDelete({ _id: req.params.id })
         if (deleted) {
+            await deleted.populate('exercises')
+            console.log(deleted)
+            for (let i = 0; i < deleted.exercises.length; i++) {
+                console.log(deleted.exercises[i])
+                await Exercise.findOneAndDelete({ _id: deleted.exercises[i]._id })
+            }
             await User.findByIdAndUpdate(
                 req.decoded,
                 { $pull: { trainings: new mongoose.Types.ObjectId(req.params.id) } }
