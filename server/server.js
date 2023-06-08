@@ -5,6 +5,7 @@ const cors = require('cors')
 const connection = require('./db')
 const userRoutes = require("./routes/users")
 const authRoutes = require("./routes/auth")
+const trainingRoutes = require("./routes/trainings")
 
 //open connection with database
 connection()
@@ -17,6 +18,7 @@ const port = process.env.PORT || 8080
 // routes
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
+app.use("/api/training", trainingRoutes)
 
 app.get("/", (req, res) => {
     res.send("TEST")
