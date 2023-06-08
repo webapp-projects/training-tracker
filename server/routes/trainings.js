@@ -6,7 +6,11 @@ const verifyToken = require("../middleware/verifyToken")
 router.get("/", verifyToken, async (req, res) => {
     try {
         const user = await User.findById(req.decoded)
-        await user.populate('trainings')
+        await user.populate({
+            path: 'trainings',
+            populate: { path: 'exercises' }
+        })
+
         res.send({ trainings: user.trainings })
     } catch (error) {
         res.status(500).send({message: "Internal Server Error"})
