@@ -2,6 +2,7 @@ const router = require("express").Router()
 const { User } = require("../models/user")
 const bcrypt = require("bcrypt")
 const Joi = require("joi")
+const verifyToken = require("../middleware/verifyToken");
 
 // login route
 router.post("/", async (req, res) => {
@@ -20,6 +21,16 @@ router.post("/", async (req, res) => {
             return res.status(401).send({ message: "Invalid Email or Password" })
         const token = user.generateAuthToken();
         res.status(200).send({ data: token, message: "logged in successfully" })
+    } catch (error) {
+        res.status(500).send({ message: "Internal Server Error" })
+    }
+})
+
+// update email
+router.put("/", verifyToken, async (req, res) => {
+    try {
+        const updatedUser = await User.findOneAndUpdate({ _id: req.decoded }, { $set: { email: req.body.email } }, { new: true });
+        res.send({ message: "Email updated" })
     } catch (error) {
         res.status(500).send({ message: "Internal Server Error" })
     }
