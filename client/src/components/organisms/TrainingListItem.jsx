@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+import { ReactComponent as BarbellIcon } from '../../assets/barbell.svg';
 
 export const TrainingListItem = ({ date, title, length, exerciseCount, id }) => {
   const headers = addTokenToRequestHeader();
@@ -22,7 +23,9 @@ export const TrainingListItem = ({ date, title, length, exerciseCount, id }) => 
           <div className="flex justify-between">
             <div className="flex  items-center justify-start gap-6">
               <div className="flex items-center gap-5">
-                <div className="h-9 w-9 rounded bg-gray-800"> a</div>
+                <div className="h-9 w-9 rounded bg-gray-800">
+                  <BarbellIcon className="ml-2" />
+                </div>
                 <div className="">
                   <div className="text-2xl text-gray-200 ">{title}</div>
                 </div>
