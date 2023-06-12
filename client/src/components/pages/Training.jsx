@@ -61,22 +61,23 @@ export const Training = () => {
     <div className="h-screen bg-gray-950">
       <NavigationBar />
       <div className="px-6">
-        <div className="mb-9 flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <h1 className=" text-2xl text-gray-100">{name}</h1>
-            <div className=" cursor-pointer rounded-full bg-green-500 px-4 py-2 text-sm  text-green-50" onClick={handleRefresh}>
+        <div className=" flex items-center justify-between">
+          <h1 className=" text-3xl text-gray-50">{name}</h1>
+          <div className="flex gap-5">
+            <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-600/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
+              Add exercise
+            </label>
+            <div className=" flex cursor-pointer items-center rounded-full bg-green-500  px-4 text-sm text-green-50 " onClick={handleRefresh}>
               Refresh
             </div>
           </div>
-
-          <label htmlFor="my-modal-5" className=" btn-outline btn border-2 border-green-600/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
-            Add exercise
-          </label>
         </div>
         <Modal>
           <AddExerciseModalContent trainingId={routeParams.id} />
         </Modal>
-        {!isLoading && exercisesData.exercises.length !== 0 ? exercisesData.exercises.map((exercise, index) => <ExerciseListItem key={index} name={exercise.name} reps={exercise.reps} checked={false} />) : <p className="text-xl text-gray-700">No exercises yet</p>}
+        <h1 className=" mb-5 text-xl text-gray-300">Exercises: </h1>
+
+        {!isLoading && exercisesData.exercises.length !== 0 ? exercisesData.exercises.map((exercise, index) => <ExerciseListItem key={index} name={exercise.name} reps={exercise.reps} checked={false} />) : <p className="text-center text-5xl text-gray-800/50">No exercises yet</p>}
       </div>
     </div>
   );

@@ -24,13 +24,13 @@ export const TrainingListItem = ({ date, title, length, exerciseCount, id }) => 
               <div className="flex items-center gap-5">
                 <div className="h-9 w-9 rounded bg-gray-800"> a</div>
                 <div className="">
-                  <div className="text-xl text-gray-300 ">{title}</div>
+                  <div className="text-2xl text-gray-200 ">{title}</div>
                 </div>
               </div>
               <div className="mb-2 text-gray-600">.</div>
-              {exerciseCount !== 0 ? <div className="font-base text-gray-400">{exerciseCount} exercises</div> : <div className="font-base text-gray-400">No logged exercises yet</div>}
+              <div className=" font-base  text-gray-500">{length} minutes</div>
               <div className="mb-2 text-gray-600">.</div>
-              <div className=" font-base text-gray-400">{length} minutes</div>
+              {exerciseCount !== 0 ? <div className="font-base text-gray-500">{exerciseCount} exercises</div> : <div className="font-base text-gray-500">No logged exercises yet</div>}
             </div>
           </div>
         </div>

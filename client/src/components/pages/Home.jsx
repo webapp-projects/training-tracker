@@ -40,14 +40,14 @@ export const Home = () => {
           <h1 className="text-2xl text-gray-100">Keep the work going!</h1>
           <h1 className=" mt-2 text-xl text-gray-300">Your Trainings: </h1>
         </div>
-        <label htmlFor="my-modal-5" className=" btn-outline btn border-2 border-green-500/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
+        <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-500/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
           Add training
         </label>
       </div>
       <Modal>
         <AddTrainingModalContent />
       </Modal>
-      <div className="mt-5 w-full px-6">{!isLoading && data.trainings.map((training, index) => <TrainingListItem title={training.name} key={training._id} length={training.time} exerciseCount={training.exercises.length} id={training._id} />)}</div>
+      <div className="mt-5 w-full px-6">{!isLoading && data.trainings.length !== 0 ? data.trainings.map((training, index) => <TrainingListItem title={training.name} key={training._id} length={training.time} exerciseCount={training.exercises.length} id={training._id} />) : <p className="text-center text-5xl text-gray-800/50">No trainings yet</p>}</div>
     </div>
   );
 };
