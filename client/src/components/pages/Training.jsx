@@ -5,7 +5,7 @@ import { ExerciseListItem } from '../organisms/ExerciseListItem';
 import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
 import { NavigationBar } from '../organisms/NavigationBar';
 import { Modal } from '../organisms/Modal';
-import { ModalContent } from '../organisms/ModalContent';
+import { AddExerciseModalContent } from '../organisms/AddExerciseModalContent';
 
 const findNameById = (id, data) => {
   const foundObject = data.find((obj) => obj._id === id);
@@ -15,18 +15,19 @@ const findNameById = (id, data) => {
   return null;
 };
 
-const onDelete = () => {};
-
 export const Training = () => {
   const routeParams = useParams();
   let endpoints = ['http://localhost:8080/api/training', `http://localhost:8080/api/exercise/${routeParams.id}`];
 
-  const [loggedExercices, setLoggedExercies] = useState(false);
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const [nameData, setNameData] = useState('');
   const [exercisesData, setExercisesData] = useState('');
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
 
   useEffect(() => {
     const headers = addTokenToRequestHeader();
@@ -61,15 +62,21 @@ export const Training = () => {
       <NavigationBar />
       <div className="px-6">
         <div className="mb-9 flex items-center justify-between">
-          <h1 className=" text-2xl text-gray-100">{name}</h1>
-          <label htmlFor="my-modal-5" className=" btn-outline btn border-2 border-violet-900/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-violet-600  hover:bg-violet-600 hover:text-gray-100">
+          <div className="flex items-center gap-5">
+            <h1 className=" text-2xl text-gray-100">{name}</h1>
+            <div className=" cursor-pointer rounded-full bg-green-500 px-4 py-2 text-sm  text-green-50" onClick={handleRefresh}>
+              Refresh
+            </div>
+          </div>
+
+          <label htmlFor="my-modal-5" className=" btn-outline btn border-2 border-green-600/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
             Add exercise
           </label>
         </div>
         <Modal>
-          <ModalContent />
+          <AddExerciseModalContent trainingId={routeParams.id} />
         </Modal>
-        {!isLoading && exercisesData.exercises.length !== 0 ? exercisesData.exercises.map((exercise, index) => <ExerciseListItem key={index} name={exercise.name} reps={exercise.reps} />) : <p className="text-xl text-gray-700">No exercises yet</p>}
+        {!isLoading && exercisesData.exercises.length !== 0 ? exercisesData.exercises.map((exercise, index) => <ExerciseListItem key={index} name={exercise.name} reps={exercise.reps} checked={false} />) : <p className="text-xl text-gray-700">No exercises yet</p>}
       </div>
     </div>
   );
