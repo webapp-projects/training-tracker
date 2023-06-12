@@ -47,7 +47,7 @@ export const Home = () => {
       <Modal>
         <AddTrainingModalContent />
       </Modal>
-      <div className="mt-5 w-full px-6">{!isLoading && data.trainings.length !== 0 ? data.trainings.map((training, index) => <TrainingListItem title={training.name} key={training._id} length={training.time} exerciseCount={training.exercises.length} id={training._id} />) : <p className="text-center text-5xl text-gray-800/50">No trainings yet</p>}</div>
+      <div className="mt-5 w-full px-6">{!isLoading && data.trainings.length !== 0 ? data.trainings.map((training, index) => <TrainingListItem title={training.name} key={training._id} length={training.time} exerciseCount={training.exercises.length} id={training._id} />) : <p className="mt-40 text-center text-5xl  text-gray-800/50">No trainings yet</p>}</div>
     </div>
   );
 };
