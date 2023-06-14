@@ -60,7 +60,7 @@ export const AddTrainingModalContent = () => {
         />
       </div>
 
-      <label htmlFor="my-modal-5" onClick={handleSubmit} disabled={buttonDisabled} className="btn-outline btn mb-4 mt-5 w-full rounded-full border-2 border-green-500 text-gray-300 hover:border-green-500 hover:bg-green-500 hover:text-gray-50">
+      <label htmlFor="my-modal-5" onClick={handleSubmit} disabled={buttonDisabled} className="btn-outline btn mb-4 mt-5 w-full rounded-lg border-2 border-green-500 text-gray-300 hover:border-green-500 hover:bg-green-600 hover:text-gray-50">
         Add Training
       </label>
     </div>

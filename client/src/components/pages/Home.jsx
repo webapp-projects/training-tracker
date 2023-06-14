@@ -33,14 +33,14 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className=" h-screen  bg-gray-950  ">
+    <div className=" h-screen  bg-gray-900  ">
       <NavigationBar handleLogout={handleLogout} />
       <div className=" flex items-center justify-between px-6">
         <div className="">
           <h1 className="text-2xl text-gray-100">Keep the work going!</h1>
           <h1 className=" mt-2 text-xl text-gray-300">Your Trainings: </h1>
         </div>
-        <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-500/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
+        <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-500/80 bg-gray-900 text-sm font-bold text-gray-300  hover:border-green-500  hover:bg-green-600 hover:text-gray-100">
           Add training
         </label>
       </div>

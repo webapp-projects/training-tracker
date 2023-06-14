@@ -19,12 +19,12 @@ export const TrainingListItem = ({ date, title, length, exerciseCount, id }) => 
   return (
     <div className="mb-6 flex w-full items-center">
       <Link to={`/training/${id}`} className="w-full">
-        <div className="w-full cursor-pointer  rounded-md border-2 border-gray-800 bg-gray-900 p-6 shadow-lg transition hover:bg-gray-900/70 hover:shadow-2xl">
+        <div className="w-full cursor-pointer  rounded-md border-2 border-gray-800 bg-gray-800 p-6 shadow-lg transition hover:bg-gray-800/70 ">
           <div className="flex justify-between">
             <div className="flex  items-center justify-start gap-6">
               <div className="flex items-center gap-5">
                 <div className="h-9 w-9 rounded bg-gray-800">
-                  <BarbellIcon className="ml-2" />
+                  <BarbellIcon className=" ml-2" />
                 </div>
                 <div className="">
                   <div className="text-2xl text-gray-200 ">{title}</div>

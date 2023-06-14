@@ -69,7 +69,7 @@ export const Register = () => {
             </label>
             <input type="password" placeholder="********" className="input-bordered input w-full max-w-sm bg-gray-800 placeholder:text-gray-600" name="password" onChange={handleChange} required />
           </div>
-          <button type="submit" className="btn-primary btn mt-9 w-full border-0 bg-sky-600 hover:bg-sky-700">
+          <button type="submit" className="btn-primary btn mt-9 w-full border-0 bg-green-500 hover:bg-green-600">
             Sign in
           </button>
         </form>

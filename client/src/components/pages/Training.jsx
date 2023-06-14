@@ -58,17 +58,17 @@ export const Training = () => {
   }, [nameData]);
 
   return (
-    <div className="h-screen bg-gray-950">
+    <div className="h-screen bg-gray-900">
       <NavigationBar />
       <div className="px-6">
         <div className=" flex items-center justify-between">
           <div>
             <h1 className=" text-3xl text-gray-50">{name}</h1>
-            <h1 className=" mb-5 text-xl text-gray-300">Exercises: </h1>
+            <h1 className=" mb-5 mt-2 text-xl text-gray-300">Exercises: </h1>
           </div>
 
           <div className="flex gap-5">
-            <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-600/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
+            <label htmlFor="my-modal-5" className=" btn-outline btn rounded-full border-2 border-green-500/80 bg-gray-900 text-sm font-bold text-gray-300  hover:border-green-600  hover:bg-green-600 hover:text-gray-100">
               Add exercise
             </label>
 
