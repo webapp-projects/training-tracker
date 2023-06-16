@@ -32,7 +32,7 @@ export const Login = () => {
   return (
     <div className="flex h-screen items-center justify-center gap-9 bg-gray-900 px-5 py-6">
       <div className="w-1/2">
-        <h1 className="flex w-full justify-center text-5xl font-semibold text-gray-300">Fintess Training Tracker</h1>
+        <h1 className="flex w-full justify-center text-5xl font-semibold text-gray-300">Fitness Training Tracker</h1>
         <p className="mt-2 flex w-full justify-center text-2xl text-gray-400">Easily track your fitness progress</p>
       </div>
 

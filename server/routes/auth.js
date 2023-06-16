@@ -30,7 +30,6 @@ router.put('/', verifyToken, async (req, res) => {
           email: req.body.email,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          // Add other fields you want to update here
         },
       },
       { new: true }
