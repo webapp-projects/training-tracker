@@ -26,6 +26,7 @@ function App() {
       <Route path="/login" exact element={<Login />} />
       <Route path="/training/:id" element={<Training />} />
       <Route path="/" element={<Navigate replace to="/login" />} />
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 }

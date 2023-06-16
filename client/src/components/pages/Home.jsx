@@ -11,11 +11,6 @@ export const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  };
-
   useEffect(() => {
     const headers = addTokenToRequestHeader();
 
@@ -32,9 +27,13 @@ export const Home = () => {
     fetchData();
   }, []);
 
+  if (isLoading) {
+    return <div>No data yet</div>;
+  }
+
   return (
-    <div className=" h-screen  bg-gray-900  ">
-      <NavigationBar handleLogout={handleLogout} />
+    <div className=" h-screen  bg-gray-900 ">
+      <NavigationBar />
       <div className=" flex items-center justify-between px-6">
         <div className="">
           <h1 className="text-2xl text-gray-100">Keep the work going!</h1>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
 import { ReactComponent as BarbellIcon } from '../../assets/barbell.svg';
 
-export const TrainingListItem = ({ date, title, length, exerciseCount, id }) => {
+export const TrainingListItem = ({ title, length, exerciseCount, id }) => {
   const headers = addTokenToRequestHeader();
 
   const handleDelete = async () => {

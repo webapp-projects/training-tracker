@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-export const NavigationBar = ({ handleLogout }) => {
+export const NavigationBar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.replace('/');
+  };
+
   return (
     <div className="navbar mb-9 flex items-center justify-between bg-gray-800 px-6">
       <div className="flex flex-col items-start ">

@@ -11,7 +11,7 @@ export const Register = () => {
     password: '',
   });
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
@@ -69,6 +69,7 @@ export const Register = () => {
             </label>
             <input type="password" placeholder="********" className="input-bordered input w-full max-w-sm bg-gray-800 placeholder:text-gray-600" name="password" onChange={handleChange} required />
           </div>
+          <div className={`-mb-3 mt-4 flex w-full justify-center rounded bg-gray-700 p-2 text-rose-600 ${error ? 'block' : 'hidden'}`}>{error}</div>
           <button type="submit" className="btn-primary btn mt-9 w-full border-0 bg-green-500 hover:bg-green-600">
             Sign in
           </button>

@@ -16,9 +16,7 @@ export const Settings = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.put('http://localhost:8080/api/auth', updatedData, { headers });
-      window.location.reload();
-
-      console.log(response.data);
+      setData(updatedData);
     } catch (error) {
       console.log(error);
     }

@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export const Login = () => {
   const [invalidCreditentials, setInvalidCreditentials] = useState();
+  const [alertVisibility, setAlertVisibility] = useState('hidden');
   const [data, setData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
 
@@ -20,6 +21,7 @@ export const Login = () => {
       window.location = '/';
     } catch (error) {
       if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+        setAlertVisibility('block');
         setError(error.response.data.message);
       }
       if (error.response.status == 401) {
@@ -51,7 +53,8 @@ export const Login = () => {
             </label>
             <input type="password" placeholder="********" className="input-bordered input w-full max-w-sm bg-gray-800 placeholder:text-gray-600" name="password" onChange={handleChange} required />
           </div>
-          <button type="submit" className="btn-primary btn mt-9 w-full border-0 bg-green-500 hover:bg-green-600">
+          <div className={`-mb-3 mt-4 flex w-full justify-center rounded bg-gray-700 p-2 text-rose-600 ${error ? 'block' : 'hidden'}`}>{error}</div>
+          <button type="submit" className={`btn-primary btn mt-9 w-full border-0 bg-green-500 hover:bg-green-600 ${error === null ? 'invisible' : 'visible'}`}>
             Log in
           </button>
         </form>
