@@ -15,6 +15,7 @@ export const Settings = () => {
 
   const handleSubmit = async () => {
     try {
+<<<<<<< HEAD
       const response = await axios.put(
         "http://localhost:8080/api/auth",
         updatedData,
@@ -23,6 +24,10 @@ export const Settings = () => {
       window.location.reload();
 
       console.log(response.data);
+=======
+      const response = await axios.put('http://localhost:8080/api/auth', updatedData, { headers });
+      setData(updatedData);
+>>>>>>> f7984d2e2219de2602c8204691dcf85752ee396f
     } catch (error) {
       console.log(error);
     }
